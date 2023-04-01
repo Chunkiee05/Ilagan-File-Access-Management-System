@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>G. Ilagan Designs and Construction</title>
+        <script src="../../JS/querylib.js"></script>
+        <script src="../../JS/redirect.js"></script>
+        <link rel="stylesheet" href="../../CSS/modal.css">
+        <link rel="stylesheet" href="../../CSS/profileStyle.css">
+    </head>
+    <body>
+        <div id="topBar">
+            <img id="topLogo" src="../../pictures/logo.png">
+            <a href="{{link}}">Files</a>
+            <a href="/profile">Profile</a>
+            <a href="/" >Logout</a>
+            
+            {{#if (eq role "Administrator")}}
+            <form id="topSearch" method="get" action="/search-user">
+                    <button><img id="sIcon" src="../../pictures/search icon.png"></button>
+                    <input type="text" id="textSearch" name="textSearch" placeholder="Search Users">
+            </form>
+            {{/if}}
+        </div>
+
+        <div id="mainBody">
+            <div id="profPage">
+                <h1 id="profName">{{profileName}}</h1>
+                <h1 id="role">{{role}}</h2>
+                <button id="passButton" onclick="changePassword()">Edit Password</button>
+                <br>
+                <button id="{{C}}" style="{{design}}" onclick="{{act}}">{{content}}</button>
+           
+
+        <div class="notificationModal success" id="successModal" style="visibility: {{vSuccess}}; opacity: {{oSuccess}};">
+            <img class="exit" src="pictures/cross.png" alt="cross" onclick="closeNotificationModal('{{type}}')">
+        
+            <div class="linear">
+                <img src="pictures/success.png" alt="">
+                <div>
+                    <h1>Success!</h1>
+                    <p>{{mSuccess}}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="notificationModal error" id="errorModal" style="visibility: {{vError}}; opacity: {{oError}};">
+            <img class="exit" src="pictures/cross.png" alt="cross" onclick="closeNotificationModal('{{type}}')">
+        
+            <div class="linear">
+                <img src="pictures/error.png" alt="">
+                <div>
+                    <h1>Error!</h1>
+                    <p>{{mError}}</p>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

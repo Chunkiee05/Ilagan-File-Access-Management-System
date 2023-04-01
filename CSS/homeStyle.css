@@ -1,0 +1,610 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inter');
+html,
+body{
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#topBar{
+    display: flex;
+    height: 67px;
+    width: 100%;
+    background-color: #f0f0f0;
+    margin-bottom: 0;
+    align-items: center;
+}
+
+
+
+#topBar a{
+    margin-left: 24px;
+    font: 400 20px 'Inter';
+    color: black;
+    text-decoration: none;
+}
+
+#topBar a::after{
+    display: block;
+
+    width: 0;
+    margin: auto;
+    border-bottom: 2px solid black;
+
+    content: '';
+
+    transition: 500ms;
+}
+
+
+#topBar a:hover::after {
+    width: 100%;
+}
+
+
+#topLogo{
+    height: 47px;
+    width: 206px;
+    align-self: center;
+    margin-left: 10px; 
+}
+
+#topSearch{
+    display: flex;
+    margin-left: auto;
+    margin-right: 10px;
+    width: 580px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid #B1B1B1;
+    background-color: white;
+}
+
+#topSearch button{
+    border: 0;
+    padding: 5px;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+#textSearch{
+    font-size: 16px;
+    flex: 1;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+
+#mainBody{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0 50px;
+}
+
+#actionLabels{
+    display: flex;
+    align-items: flex-end;
+    height: 100px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#actionLabels h1{
+    font: 700 64px "Roboto";
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#actionLabels button{
+    display: flex;
+    padding:5px;
+    align-items: center;
+    font: 24px "Roboto";
+    align-items: center;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    border:none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#actionLabels button:hover{
+    transform: scale(1.1);
+}
+
+.nextBtn{ 
+    margin-left: 18px;
+    background: #F0F0F0;
+}
+
+#uploadBtn{
+    margin-left: auto;
+    color: white;
+    background-color: #1E3F5A;
+}
+
+#breadcrumb{
+    display: flex;
+    height: 33px;
+    margin: 0;
+    padding: 0;
+    
+}
+#breadcrumb button{
+    width: 35px;
+    height: 33px; 
+    background-color: #d3d3d3;
+    border-radius: 10px;
+    border: none;
+    align-self: flex-end;
+    background-image: url("../../pictures/back.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+#breadcrumb button:hover{
+    transform: scale(1.1);
+}
+
+
+#breadcrumb p{
+    width: 50%;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    color: #5b5b5b;
+    margin: 0;
+    align-self: flex-end;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    direction: rtl;
+    text-align: left;
+    align-self: center;
+}
+
+/* TITLE BAR TITLE BAR TITLE BAR TITLE BAR TITLE BAR TITLE BAR TITLE BAR */
+
+#titleBar{
+    display: flex;
+    height: 44px;
+    width: 100%;
+    border-bottom: 1px solid #000000;
+    align-items: center;
+}
+
+#titleBar p{
+    align-self: center;
+    font-family: 'Inter';
+    font-style: normal;
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 1.2vw;
+}
+
+
+.nameDiv {
+    flex: 5.2;
+}
+
+.uploaderDiv {
+    flex: 1.6;
+    padding-left: 8px;
+    border-left: 1px solid #000000;
+}
+
+.uploadDateDiv {
+    flex: 0.8;
+    padding-left: 8px;
+    border-left: 1px solid #000000;
+}
+
+.uploadSizeDiv {
+    flex: 0.8;
+    padding-left: 8px;
+    border-left: 1px solid #000000;
+}
+
+
+/* SELECT ALL SELECT ALL SELECT ALL SELECT ALL SELECT ALL SELECT ALL SELECT ALL */
+
+#saDiv{
+    display: none; /*display flex when toggling select button*/
+    height: 39px;
+}
+
+.checkbox{
+    height: 20px;
+    width: 20px;
+    align-self: center;
+    cursor: pointer;
+}
+
+#saLabel{
+    align-self: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    margin-left: 8px;
+}
+
+#filesContainer{
+    display: flex;
+    flex-direction: column;
+    overflow-y:auto;
+    max-height:60vh;
+    width: 100%;
+}
+
+
+/* FILE DIV FILE DIV FILE DIV FILE DIV FILE DIV FILE DIV FILE DIV FILE DIV FILE DIV FILE DIV */
+
+.fileDiv{
+    display: flex;
+    height: 39px;
+    align-items: center;
+    border-bottom: 1px solid #000000;
+    padding: 8px 0 8px 0;
+    width: 100%;
+}
+
+.fileIcon{
+    width: 17px;
+    height: 21px;
+    margin-left: 8px;
+}
+
+.filesCheckbox{
+    display: none;
+    cursor: pointer;
+}
+.foldersCheckbox{
+    display: none;
+    cursor: pointer;
+}
+
+.fileDiv label{
+    padding-left: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.fileNameDiv{
+    display: flex;
+    align-items: center;
+    flex:5.2;
+    width: 50%;
+}
+
+.fileDiv:hover{
+    background-color: #e4e4e4;
+}
+
+.fileName{
+    padding-left: 8px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 95%;
+}
+
+.fileUploadedBy{
+    flex:1.6;
+}
+
+.fileUploadDate{
+    flex:0.8;
+  
+}
+
+.fileSize{
+    flex:0.8;
+}
+.folderSize{
+    flex:0.8;
+}
+
+
+/* FOLDER DIV FOLDER DIV */
+
+.folderDiv{
+    display: flex;
+    height: 39px;
+    align-items: center;
+    border-bottom: 1px solid #000000;
+    padding:8px 0 8px 0;
+}
+
+.folderIcon{
+    width: 17px;
+    height: 21px;
+    margin-left: 8px;
+}
+
+.folderDiv label{
+    padding-left: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.folderNameDiv{
+    display: flex;
+    align-items: center;
+    flex:5.2;
+    width: 50%;
+}
+
+.folderNameDiv label{
+    width: 95%;
+}
+
+.folderDiv:hover{
+    background-color: #e4e4e4;
+}
+
+.folderName{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.folderUploadedBy{
+    flex:1.6;
+
+}
+
+.folderUploadDate{
+    flex:0.8;
+  
+}
+
+.formPopUp {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+.popUpContent{
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius:10px;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+.popUpContent input{
+    width: 35%;
+    font: 30px "Roboto";
+    padding:5px;
+    border-radius:10px;
+    border: none;
+    background-color: #ECECEC;
+}
+.popUpContent label{
+    font: 700 25px "Roboto";
+    margin: 0 5px 0 0;
+    white-space: nowrap;
+}
+.popUpContent select{
+    width: 400px;
+    height: 49px;
+    margin-left: 10px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 10px;
+
+    background-color: #ECECEC;
+
+    font: 400 24px "Roboto";
+    color: black;
+}
+.formPopup button{
+    white-space: nowrap;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    width:180px;
+    margin: 0 0 0 15px;
+    background-color: #1E3F5A;
+    height:auto;
+    font: 25px "Roboto";
+    color: white;
+    justify-content: center;
+    transition: 500ms;
+    cursor: pointer;
+}
+
+.formPopup button:hover{
+    transform: scale(1.05);
+}
+
+
+#errorCode {
+    font: 200 24px "Roboto";
+    color: #BF0707;
+    text-align: center;
+    font-weight:600;
+}
+.titleAction {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: -60px;
+}
+
+#title {
+    margin-left: 35px;
+
+    font: 700 70px "Roboto";
+    color: #BF0707;
+    line-height: 75px;
+}
+
+.action {
+    display: flex;
+    flex-flow: row nowrap;
+
+    margin-right: 35px;
+}
+
+.action div {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    margin-left: 10px;
+}
+
+.action div:hover img,
+.action div:hover button,
+.action div:hover label{
+    background-color: #00AEAE;
+
+    cursor: pointer;
+}
+
+.action img {
+    height: 50px;
+    width: 50px;
+    padding: 10px 0 10px 20px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+
+    background-color: #BF0707;
+
+    transition: 500ms;
+}
+
+.action button,
+.action label {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 0 20px 20px 0;
+
+    background-color: #BF0707;
+
+    font: 400 25px "Roboto";
+    color: white;
+
+    transition: 500ms;
+}
+
+.action input[type=file], .fileModal input[type=file] {
+    display: none;
+}
+
+.folderFile {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.folder,
+.file {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+    width: 240px;
+    height: 240px;
+    margin: 25px 35px 30px 35px;
+    padding: 3px;
+    border-radius: 10px;
+
+    background-color: #F0F0F0;
+}
+
+.folder:hover,
+.file:hover {
+    cursor: pointer;
+}
+
+.folder img {
+    width: 80.92px;
+    height: 65.21px;
+    padding: 65px 79.50px;
+    border-radius: 10px 10px 0 0;
+
+    background-color: white;
+}
+
+.file img {
+    width: 59px;
+    height: 69px;
+    padding: 65px 90.5px;
+    border-radius: 10px 10px 0 0;
+
+    background-color: white;
+}
+
+.folder p,
+.file p {
+    margin: 0 15px 0;
+    padding: 10px;
+    font: 800 20px "Roboto";
+    color: #BF0707;
+    text-align: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#multContext {
+    position: fixed; /* Stay in place */
+    left:40%;
+    top:10%;
+    display: flex;
+    flex-flow: column;
+    visibility: hidden;
+    width: 250px;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+    background-color: white;
+}
+
+#multContext p {
+    border-bottom: 1px solid black;
+    font: 400 16px 'Roboto';
+    cursor: pointer;
+    padding: 2px 0;
+}
+
+#multContext p:hover {
+    background-color: #CDCDCD;
+}
